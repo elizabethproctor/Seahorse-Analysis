@@ -1,0 +1,136 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red9\green80\blue208;\red255\green255\blue255;
+}
+{\*\expandedcolortbl;\csgray\c100000;\cssrgb\c0\c0\c0;\cssrgb\c0\c41176\c85098;\csgray\c100000;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\})}{\leveltext\leveltemplateid1\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\})}{\leveltext\leveltemplateid101\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid201\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}}
+\margl1440\margr1440\vieww13140\viewh11020\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 SHorE: Seahorse Explorer                                                                                                                \
+Author: Elizabeth A. Proctor                                                 \
+proctor.tools@gmail.com \
+GitHub: elizabethproctor \
+
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 This software is protected under the Gnu Public License, version 3 (GPLv3) \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 **********\
+Please cite as:\
+D. Nicholas, E. A. Proctor, F. M. Raval, B. C. Ip, C. Habib, E. Ritou, T. N. Grammatopoulos, D. Steenkamp, H. Dooms, C. M. Apovian, D. A. Lauffenburger, B. Nikolajczyk. "Advances in the Quantification of Mitochondrial Function in Primary Human Immune Cells through Extracellular Flux Analysis," submitted (2016)\
+**********\
+\
+This program combines results from multiple experiments performed by Seahorse XF Cell Mitochondrial Stress Test, and calculates unified OCR:ECAR ratios and metabolic parameters for each sample/condition:\
+	(1) Basal Respiration (BR), OCR:ECAR for Basal Respiration\
+	(2) ATP Production (ATP)\
+	(3) Maximal Respiration (MR), OCR:ECAR for Maximal Respiration\
+	(4) Spare Respiratory Capacity (SRC)\
+	(5) Proton Leak (PL)\
+	(6) Non-Mitochondrial Respiration (NMiR)\
+\
+\
+
+\b \ul To use this program, you will need:
+\b0 \ulnone \
+(1) For each Seahorse experiment, the "Rate" tab of Seahorse output exported in CSV format. Add a column with corresponding cell numbers plated (or other normalization information you wish to use) for each well.\
+(2) A single text file listing the filenames of each CSV file from 1 above.\
+\
+\
+
+\b \ul Instructions for using command line:
+\b0 \ulnone \
+MAC/LINUX/UNIX\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	1)	}Open the Terminal program. In recent Mac OSX versions this application is under the \'93Utilities\'94 sub-folder in Applications.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	2)	}\expnd0\expndtw0\kerning0
+If you are in the folder with your data (denoted by the file path that appears next to your prompt), skip this step. If not, type \'93cd \'93 followed by the path to where your data is. For example:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls1\ilvl1\cf0 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+cd ~/projects/seahorse\kerning1\expnd0\expndtw0 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	3)	}Follow instructions for \'93Command line usage,\'94 below. Example command line, for when the program is located in the same directory as all data files:\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 		./SHorE.py\
+\pard\tx689\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 	followed by the arguments specific to your data, as described below\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+WINDOWS\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf0 {\listtext	1)	}\expnd0\expndtw0\kerning0
+Open Windows \'93command prompt\'94: Start > Programs > Accessories > Command Prompt. You should see something like \'93C:\\>\'94, or similar.\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	2)	}\expnd0\expndtw0\kerning0
+Type:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls2\ilvl1\cf0 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+py\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 	\expnd0\expndtw0\kerning0
+and hit enter. If you get an error, you will need to download and install Python 2, which is free: {\field{\*\fldinst{HYPERLINK "https://www.python.org/downloads/"}}{\fldrslt \cf3 \ul \ulc3 https://www.python.org/downloads/}}. If no error occurs, you have Python already installed. Type ctrl+D to exit.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	3)	}\expnd0\expndtw0\kerning0
+If you are in the folder with your data (denoted by the file path that appears next to your prompt), skip this step. If not, type \'93cd \'93 followed by the path to where your data is. For example:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls2\ilvl1\cf0 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+cd \\Users\\username\\projects\\seahorse\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	4)	}\expnd0\expndtw0\kerning0
+Follow instructions for \'93Command line usage,\'94 below. Example command line, for when the program is located in the same directory as all data files:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls2\ilvl1\cf0 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+py SHorE.py\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\cb4 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \cb1 \kerning1\expnd0\expndtw0 \
+
+\b \ul Command line usage:
+\b0 \ulnone  SHorE.py list outputName(optional) nMeasure(optional)\
+ 	"list" is the text file described in \'93To use this program (2),\'94 above.\
+	"outputName" is a root for the name of the output files that will be generated. This argument is optional, and is not required for the program to run. Default is "log.out," with NO OVERWRITE PROTECTION.\
+	\'93nMeasure\'94 is the total number of measurements performed. This argument is optional, and is not required for the program to run. Default is 14, laid out as below. 12 is also implemented, but needs to be specified.\
+\
+NOTE: CONDITION NAMES THAT GO WITH CELL COUNTS MUST BE WRITTEN EXACTLY AS IN THE SEAHORSE OUTPUT FILE\
+\
+NOTE: THERE IS NO OVERWRITE PROTECTION FOR OUTPUT FILES. If you do not list a different output name and run the program twice in the same directory, your first output files will be overwritten.\
+\
+\
+
+\b \ul Program notes
+\b0 \ulnone \
+This program assumes the following experimental layout (14-measurement format):\
+	Measurement time points, separated by 5 minutes:\
+		1-5: Baseline\
+		---> Inject oligomycin (ATP coupler)\
+		6-8\
+		---> Inject FCCP (ETC accelerator)\
+		9-11\
+		---> Inject antimycin/rotenone (mitochondrial inhibitor)\
+		12-14\
+12-measurement format is similar, with two fewer baseline measurements.\
+\
+Handling of measurement error:\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}Errors are calculated as standard errors of the mean, with commonly used error propogation for calculated parameters. \
+{\listtext	\uc0\u8259 	}Final oxygen consumption curves are determined as medians of biological and technical replicates, in order to discard outliers and account for potential skewed distributions. In a perfectly normal distribution, median = mean.\
+{\listtext	\uc0\u8259 	}For metabolic parameters in which a median of similar measurements is used (e.g. NMiR), the error for the selected measurement is designated as the error for the parameter.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+For comparison purposes, each replicate across all experiments is aligned to the non-metabolic respiration of the first instance of that condition. Measurements are not otherwise scaled.\
+For each condition, each measurement is represented by the median of replicates, across all experiments.\
+Metabolic parameters are calculated as:\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls4\ilvl0\cf0 {\listtext	\'95	}Non-Mitochondrial Respiration (NMiR) is calculated as the median of measurements 12-14, following injection of mitochondrial inhibitor. The median is used in order to discount potential non-sense measurements due to the low level of respiration.\
+{\listtext	\'95	}Basal Respiration (BR) is calculated as average of timepoints 3-5, minus Non-Mitochondrial Respiration (NMiR). For 12 measurements, BR is the average of timepoints 2 and 3.\
+{\listtext	\'95	}ATP Production (ATP) is calculated as the difference between Basal Respiration and the median of measurements 6-8, which are taken following injection of ATP coupler. The median is used in order to discount potential non-sense measurements due to the low level of respiration.\
+{\listtext	\'95	}Maximal Respiration (MR) is calculated as the first measurement after injection of ETC accelerator (timepoint 9), minus Non-Mitochondrial Respiration (NMiR).\
+{\listtext	\'95	}Spare Respiratory Capacity (SRC) is calculated as the difference between Maximal Respiration (MR) and the average of measurements 3-5, which represent the baseline (or Basal Respiration + Non-Mitochondrial Respiration).\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Wells with OCR or ECAR less than or equal to zero (at any measurement) will be excluded from calculations.\
+}
