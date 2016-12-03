@@ -4,6 +4,7 @@ Analysis of metabolic profiles and calculation of parameters from output of mult
 SHorE: Seahorse Explorer                                                                                                                
 Author: Elizabeth A. Proctor                                                 
 proctor.tools@gmail.com 
+
 GitHub: elizabethproctor 
 
 This software is protected under the Gnu Public License, version 3 (GPLv3) 
